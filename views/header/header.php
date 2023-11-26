@@ -8,7 +8,7 @@
  */
 ?>
 
-
+<div class="main-header-section">
 	<div class="container">
 
 		<div class="row align-middle">
@@ -46,7 +46,7 @@
 					</li>
 					<li>
 						<a class="menu-search-bar dowp-search-trigger" href="#">
-							<?php echo dowp_get_svg('search') ?>
+							<?php echo dowp_get_svg( 'search' ) ?>
 						</a>
 						<?php get_search_form(); ?>
 					</li>
@@ -56,3 +56,4 @@
 		</div><!-- .row -->
 
 	</div><!-- .container -->
+</div>

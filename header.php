@@ -23,9 +23,10 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site" <?php echo ! is_customize_preview() ?: 'style="padding: 0 40px;"'; ?>>
-	<header id="masthead" class="site-header" role="banner">
-	<?php get_template_part( 'views/header/header' ); ?>
-	<?php get_template_part( 'views/header/offcanvas', 'drawer' ); ?>
+	<header id="masthead" class="site-header trheader" role="banner">
+		<?php get_template_part( 'views/header/header', 'topbar' ); ?>
+		<?php get_template_part( 'views/header/header' ); ?>
+		<?php get_template_part( 'views/header/offcanvas', 'drawer' ); ?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
