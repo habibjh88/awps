@@ -9,8 +9,9 @@ class App {
 		};
 
 		$(document).ready(() => {
-			this.menuDrawerOpen(this.$);
-			this.offcanvasMenuToggle(this.$)
+			this.menuDrawerOpen($);
+			this.offcanvasMenuToggle($);
+			this.headerSearchOpen($)
 		})
 
 		$(document).load(() => {
@@ -35,11 +36,25 @@ class App {
 	offcanvasMenuToggle($) {
 		this.offCanvas.drawer.each(function () {
 			const caret = $(this).find('.caret');
-			caret.on('click', function () {
+			caret.on('click', function (e) {
+				e.preventDefault();
 				$(this).closest('li').toggleClass('is-open');
 				$(this).parent().next().slideToggle(300);
 			})
 		})
+	}
+
+	headerSearchOpen($){
+		$('.dowp-search-trigger').on('click', e=>{
+			e.preventDefault();
+			$('.dowp-search-form').fadeToggle();
+			e.stopPropagation()
+		})
+		$(document).on('click', e => {
+			if (!$(e.target).closest('.dowp-search-form').length)  {
+				$('.dowp-search-form').fadeOut()
+			}
+		});
 	}
 
 }

@@ -1,5 +1,6 @@
 button {
 	@include transition(all $time $ease);
+	cursor: pointer;
 }
 
 .btn {
