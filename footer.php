@@ -11,34 +11,35 @@
 
 ?>
 
-	</div><!-- #content -->
+</div><!-- #content -->
 
-	<?php
-	if ( is_customize_preview() ) {
-		echo '<div id="awps-footer-control" style="margin-top:-30px;position:absolute;"></div>';
-	}
-	?>
+<?php
+if ( is_customize_preview() ) {
+	echo '<div id="awps-footer-control" style="margin-top:-30px;position:absolute;"></div>';
+}
+?>
 
-	<footer id="colophon" class="site-footer container-fluid" role="contentinfo">
+<footer class="site-footer" role="contentinfo">
 
-		<div class="site-info">
-			<?php
-				printf(
-					'<a %s href="%s">%s</a>',
-					is_customize_preview() ? 'id="awps-footer-copy-control"' : '',
-					esc_url( __( 'https://github.com/Alecaddd/awps', 'awps' ) ),
-					esc_html( Awps\Api\Customizer::text( 'awps_footer_copy_text' ) )
-				);
-			?>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: %1: Theme name. */
+	<div class="footer-area">
+		<div class="container">
+			<div class="footer-widgets row">
+				<?php dynamic_sidebar('dowp-footer-sidebar'); ?>
+			</div>
+		</div>
 
-				/* translators: %2: Author name. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'awps' ), 'AWPS', '<a href="http://alecaddd.com/" rel="designer">Alecaddd</a>' );
-			?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+	</div><!-- .site-info -->
+
+	<div id="awps-footer-copy-control" class="footer-copyright text-center">
+		<?php
+		printf(
+			'<a href="%s">%s</a>',
+			esc_url( __( 'https://github.com/Alecaddd/awps', 'awps' ) ),
+			'&copy copyright '
+		);
+		?>
+	</div>
+</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

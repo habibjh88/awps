@@ -9,57 +9,57 @@
 
 get_header(); ?>
 
-<div class="container">
+	<div class="container">
 
-	<div class="row">
+		<div class="row">
 
-		<div class="col-sm-8">
+			<div class="col-sm-8">
 
-			<div id="primary" class="content-area">
-				<main id="main" class="site-main" role="main">
+				<div id="primary" class="content-area">
+					<main id="main" class="site-main" role="main">
 
-				<?php
-				if ( have_posts() ) :
-				?>
-
-					<header>
 						<?php
-							the_archive_title( '<h1 class="page-title">', '</h1>' );
-							the_archive_description( '<div class="archive-description">', '</div>' );
+						if ( have_posts() ) :
+							?>
+
+							<header>
+								<?php
+								the_archive_title( '<h1 class="page-title">', '</h1>' );
+								the_archive_description( '<div class="archive-description">', '</div>' );
+								?>
+							</header>
+
+							<?php
+							/* Start the Loop */
+							while ( have_posts() ) :
+
+								the_post();
+
+								get_template_part( 'views/content', get_post_format() );
+
+							endwhile;
+
+							the_posts_navigation();
+
+						else :
+
+							get_template_part( 'views/content', 'none' );
+
+						endif;
 						?>
-					</header>
 
-					<?php
-					/* Start the Loop */
-					while ( have_posts() ) :
+					</main><!-- #main -->
+				</div><!-- #primary -->
 
-						the_post();
+			</div><!-- .col- -->
 
-						get_template_part( 'views/content', get_post_format() );
+			<div class="col-sm-4">
+				<?php get_sidebar(); ?>
+			</div><!-- .col- -->
 
-					endwhile;
+		</div><!-- .row -->
 
-					the_posts_navigation();
-
-				else :
-
-					get_template_part( 'views/content', 'none' );
-
-				endif;
-				?>
-
-				</main><!-- #main -->
-			</div><!-- #primary -->
-
-		</div><!-- .col- -->
-
-		<div class="col-sm-4">
-			<?php get_sidebar(); ?>
-		</div><!-- .col- -->
-
-	</div><!-- .row -->
-
-</div><!-- .container -->
+	</div><!-- .container -->
 
 <?php
 get_footer();

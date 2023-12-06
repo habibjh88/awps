@@ -1,24 +1,24 @@
 .container,
 .container-fluid,
 .container-narrow {
-    box-sizing: border-box;
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $gutter / 2;
-    padding-left: $gutter / 2;
+	box-sizing: border-box;
+	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $gutter / 2;
+	padding-left: $gutter / 2;
 
-    @include clearfix;
+	@include clearfix;
 }
 
 .container {
-    max-width: $xl;
+	max-width: $xl;
 }
 
 .container-fluid {
-    max-width: 100%;
+	max-width: 100%;
 }
 
 .container-narrow {
-    max-width: $lg;
+	max-width: $lg;
 }

@@ -137,12 +137,3 @@ $breakpoint-counter: 0;
 	margin-left: auto;
 	margin-right: auto;
 }
-
-$gaps: 5, 10, 15, 20, 30, 40, 50, 80, 100;
-
-@each $gap in $gaps {
-	.gap-#{$gap} {
-		gap: #{$gap}px;
-	}
-}
-

@@ -3,11 +3,11 @@
 namespace Awps\Api\Widgets;
 
 use WP_Widget;
+
 /**
  * Custom Widget.
  */
-class TextWidget extends WP_Widget
-{
+class TextWidget extends WP_Widget {
 	public $widget_ID;
 
 	public $widget_name;
@@ -23,22 +23,22 @@ class TextWidget extends WP_Widget
 		$this->widget_name = 'AWPS Custom Text';
 
 		$this->widget_options = array(
-			'classname' => $this->widget_ID,
-			'description' => $this->widget_name . ' Widget',
+			'classname'                   => $this->widget_ID,
+			'description'                 => $this->widget_name . ' Widget',
 			'customize_selective_refresh' => true,
 		);
 
 		$this->control_options = array(
-			'width' => 400,
+			'width'  => 400,
 			'height' => 350,
 		);
 	}
+
 	/**
-     * register default hooks and actions for WordPress
-     * @return
-     */
-	public function register()
-	{
+	 * register default hooks and actions for WordPress
+	 * @return
+	 */
+	public function register() {
 		parent::__construct( $this->widget_ID, $this->widget_name, $this->widget_options, $this->control_options );
 
 		add_action( 'widgets_init', array( $this, 'widgetsInit' ) );
@@ -47,8 +47,7 @@ class TextWidget extends WP_Widget
 	/**
 	 * Register this widget
 	 */
-	public function widgetsInit()
-	{
+	public function widgetsInit() {
 		register_widget( $this );
 	}
 
@@ -75,10 +74,10 @@ class TextWidget extends WP_Widget
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Custom Text', 'awps' );
 		?>
 		<p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'awps' ); ?></label> 
-		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'awps' ); ?></label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		</p>
-		<?php 
+		<?php
 	}
 
 	/**
@@ -88,7 +87,7 @@ class TextWidget extends WP_Widget
 	 * @param array $old_instance The previous options
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance = $old_instance;
+		$instance          = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 
 		return $instance;

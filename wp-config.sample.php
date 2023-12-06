@@ -37,16 +37,16 @@ endif;
  * The name of the database for WordPress
  */
 
-define( 'DB_NAME', $_ENV[ 'DB_NAME' ] );
+define( 'DB_NAME', $_ENV['DB_NAME'] );
 
 /* MySQL database username */
-define( 'DB_USER', $_ENV[ 'DB_USER' ] );
+define( 'DB_USER', $_ENV['DB_USER'] );
 
 /* MySQL database password */
-define( 'DB_PASSWORD', $_ENV[ 'DB_PASSWORD' ] );
+define( 'DB_PASSWORD', $_ENV['DB_PASSWORD'] );
 
 /* MySQL hostname */
-define( 'DB_HOST', $_ENV[ 'DB_HOST' ] );
+define( 'DB_HOST', $_ENV['DB_HOST'] );
 
 /* Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -80,7 +80,7 @@ define( 'NONCE_SALT', 'put your unique phrase here' );
  * prefix. Only numbers, letters, and underscores please!
  */
 
-$table_prefix = $_ENV[ 'DB_PREFIX' ];
+$table_prefix = $_ENV['DB_PREFIX'];
 
 /*
  * For developers: WordPress debugging mode.
@@ -95,9 +95,9 @@ $table_prefix = $_ENV[ 'DB_PREFIX' ];
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 
-define( 'WP_DEBUG', $_ENV[ 'APP_ENV' ] === 'development' ? true : false );
-define( 'JETPACK_DEV_DEBUG', $_ENV[ 'APP_ENV' ] === 'development' ? true : false );
-define( 'WPCF7_AUTOP', $_ENV[ 'WPCF7_AUTOP' ] );
+define( 'WP_DEBUG', $_ENV['APP_ENV'] === 'development' ? true : false );
+define( 'JETPACK_DEV_DEBUG', $_ENV['APP_ENV'] === 'development' ? true : false );
+define( 'WPCF7_AUTOP', $_ENV['WPCF7_AUTOP'] );
 define( 'FS_METHOD', 'direct' );
 
 /**
@@ -105,21 +105,21 @@ define( 'FS_METHOD', 'direct' );
  * reduces DB calls and increase performance
  */
 
-define( 'WP_HOME', $_ENV[ 'WP_HOME' ] );
-define( 'WP_SITEURL', $_ENV[ 'WP_SITEURL' ] );
+define( 'WP_HOME', $_ENV['WP_HOME'] );
+define( 'WP_SITEURL', $_ENV['WP_SITEURL'] );
 
 /**
  * Manage Post revisions and autosave
  */
 
-define( 'AUTOSAVE_INTERVAL', $_ENV[ 'AUTOSAVE_INTERVAL' ] );
-define( 'WP_POST_REVISIONS', $_ENV[ 'WP_POST_REVISIONS' ] );
+define( 'AUTOSAVE_INTERVAL', $_ENV['AUTOSAVE_INTERVAL'] );
+define( 'WP_POST_REVISIONS', $_ENV['WP_POST_REVISIONS'] );
 
 /**
  * Manage Trash auto empty
  */
 
-define( 'EMPTY_TRASH_DAYS', $_ENV[ 'EMPTY_TRASH_DAYS' ] );
+define( 'EMPTY_TRASH_DAYS', $_ENV['EMPTY_TRASH_DAYS'] );
 
 /* That's all, stop editing! Happy blogging. */
 

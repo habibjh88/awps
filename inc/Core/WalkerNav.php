@@ -24,9 +24,9 @@ class WalkerNav extends Walker_Nav_Menu {
 			$output .= "<li class=\"divider\"></li>\n";
 			unset( $classes[ $divider_class_position ] );
 		}
-		$classes[]  = ( $args->has_children ) ? 'dropdown' : '';
-		$classes[]  = ( $item->current || $item->current_item_ancestor ) ? 'active' : '';
-		$classes[]  = 'menu-item-' . $item->ID;
+		$classes[] = ( $args->has_children ) ? 'dropdown' : '';
+		$classes[] = ( $item->current || $item->current_item_ancestor ) ? 'active' : '';
+		$classes[] = 'menu-item-' . $item->ID;
 
 		$_mega_menu = get_post_meta( $item->ID, 'dowp_mega_menu', true );
 		if ( ! empty( $_mega_menu ) ) {

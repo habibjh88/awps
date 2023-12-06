@@ -22,13 +22,15 @@ class App {
 	menuDrawerOpen($) {
 		this.offCanvas.menuBar.on('click', e => {
 			e.preventDefault();
+			this.offCanvas.menuBar.toggleClass('is-open')
 			this.offCanvas.drawer.toggleClass('is-open');
 			e.stopPropagation()
 		});
 
 		$(document).on('click', e => {
-			if (!$(e.target).closest(this.offCanvas.drawerClass).length)  {
+			if (!$(e.target).closest(this.offCanvas.drawerClass).length) {
 				this.offCanvas.drawer.removeClass('is-open');
+				this.offCanvas.menuBar.removeClass('is-open')
 			}
 		});
 	}
@@ -44,14 +46,14 @@ class App {
 		})
 	}
 
-	headerSearchOpen($){
-		$('.dowp-search-trigger').on('click', e=>{
+	headerSearchOpen($) {
+		$('.dowp-search-trigger').on('click', e => {
 			e.preventDefault();
 			$('.dowp-search-form').fadeToggle();
 			e.stopPropagation()
 		})
 		$(document).on('click', e => {
-			if (!$(e.target).closest('.dowp-search-form').length)  {
+			if (!$(e.target).closest('.dowp-search-form').length) {
 				$('.dowp-search-form').fadeOut()
 			}
 		});

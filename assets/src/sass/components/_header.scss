@@ -235,9 +235,11 @@ Mega-menu CSS
 	right: 0;
 	padding: 30px;
 }
+
 .site-header .main-navigation ul li > ul.dropdown-menu.depth_0 {
 	transform: translateY(15px);
 }
+
 .site-header .main-navigation ul > li:hover > ul.dropdown-menu.depth_0 {
 	transform: translateY(0);
 }
@@ -330,6 +332,7 @@ Menu icon style
 **********************/
 
 .site-header .menu-icon-wrapper {
+
 	.menu-bar {
 		position: relative;
 		display: flex;
@@ -339,6 +342,28 @@ Menu icon style
 		flex-direction: column;
 		justify-content: space-between;
 		margin-top: -6px;
+		transition: all .3s ease-out;
+
+		&.is-open {
+			padding-left: 2px;
+
+			span:nth-child(2) {
+				margin-left: 30px;
+				opacity: 0;
+			}
+
+			span:nth-child(1) {
+				transform-origin: left top;
+				rotate: 45deg;
+				background-color: #FF0000;
+			}
+
+			span:nth-child(3) {
+				transform-origin: left bottom;
+				transform: rotate(-45deg);
+				background-color: #FF0000;
+			}
+		}
 	}
 
 	.menu-bar span {
@@ -441,6 +466,7 @@ Off canvas drawer
 		background: #fff;
 		border: 1px solid #ddd;
 		display: none;
+		z-index: 9999;
 
 		.search-box {
 			position: relative;

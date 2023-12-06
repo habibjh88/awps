@@ -6,64 +6,62 @@ namespace Awps\Custom;
  * Custom
  * use it to write your custom functions.
  */
-class PostTypes
-{
+class PostTypes {
 	/**
-     * register default hooks and actions for WordPress
-     * @return
-     */
+	 * register default hooks and actions for WordPress
+	 * @return
+	 */
 	public function register() {
-		add_action( 'init', array( $this, 'custom_post_type'), 10 , 4 );
-		add_action( 'after_switch_theme', array( $this, 'rewrite_flush') );	
-	}	
-	
-  /**
-    * Create Custom Post Types
-    * @return The registered post type object, or an error object
-    */
-    public function custom_post_type()
-    {
+		add_action( 'init', array( $this, 'custom_post_type' ), 10, 4 );
+		add_action( 'after_switch_theme', array( $this, 'rewrite_flush' ) );
+	}
+
+	/**
+	 * Create Custom Post Types
+	 * @return The registered post type object, or an error object
+	 */
+	public function custom_post_type() {
 		/**
 		 * Add the post types and their details
 		 */
 		$custom_posts = array(
 			array(
-				'slug' => 'artist',
-				'singular' => 'Artist',
-				'plural' => 'Artists',
-				'menu_icon' => 'dashicons-admin-customizer',
-				'menu_position' => 18,
-				'text_domain' => 'awps',
-				'supports' => array( 'title', /*'editor', 'thumbnail' , 'excerpt', 'author', 'comments'*/ ),
-				'description' => 'Artists Custom Post Type',
-				'public' => true,
+				'slug'               => 'artist',
+				'singular'           => 'Artist',
+				'plural'             => 'Artists',
+				'menu_icon'          => 'dashicons-admin-customizer',
+				'menu_position'      => 18,
+				'text_domain'        => 'awps',
+				'supports'           => array( 'title', /*'editor', 'thumbnail' , 'excerpt', 'author', 'comments'*/ ),
+				'description'        => 'Artists Custom Post Type',
+				'public'             => true,
 				'publicly_queryable' => true,
-				'show_ui' => true,
-				'show_in_menu' => true,
-				'query_var' => true,
-				'capability_type' => 'post',
-				'has_archive' => true,
-				'hierarchical' => false,
-				'show_in_rest' => true,
+				'show_ui'            => true,
+				'show_in_menu'       => true,
+				'query_var'          => true,
+				'capability_type'    => 'post',
+				'has_archive'        => true,
+				'hierarchical'       => false,
+				'show_in_rest'       => true,
 			),
 			array(
-				'slug' => 'book',
-				'singular' => 'Book',
-				'plural'  => 'Books',
-				'menu_icon' => 'dashicons-book-alt',
-				'menu_position' => 18,
-				'text_domain' => 'awps',
-				'supports' => array( 'title', 'editor', 'thumbnail' , 'excerpt', 'author', /*'comments'*/ ),
-				'description' => 'Books Custom Post Type',
-				'public' => true,
+				'slug'               => 'book',
+				'singular'           => 'Book',
+				'plural'             => 'Books',
+				'menu_icon'          => 'dashicons-book-alt',
+				'menu_position'      => 18,
+				'text_domain'        => 'awps',
+				'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt', 'author', /*'comments'*/ ),
+				'description'        => 'Books Custom Post Type',
+				'public'             => true,
 				'publicly_queryable' => true,
-				'show_ui' => true,
-				'show_in_menu' => true,
-				'query_var' => true,
-				'capability_type' => 'post',
-				'has_archive' => true,
-				'hierarchical' => false,
-				'show_in_rest' => true,
+				'show_ui'            => true,
+				'show_in_menu'       => true,
+				'query_var'          => true,
+				'capability_type'    => 'post',
+				'has_archive'        => true,
+				'hierarchical'       => false,
+				'show_in_rest'       => true,
 			),
 		);
 
@@ -85,7 +83,7 @@ class PostTypes
 				'not_found'          => __( 'No ' . $custom_post['plural'] . ' found.', $custom_post['text_domain'] ),
 				'not_found_in_trash' => __( 'No ' . $custom_post['plural'] . ' found in Trash.', $custom_post['text_domain'] ),
 			);
-			$args = array(
+			$args   = array(
 				'labels'             => $labels,
 				'description'        => __( $custom_post['description'], $custom_post['text_domain'] ),
 				'public'             => $custom_post['public'],
@@ -107,13 +105,12 @@ class PostTypes
 		}
 	}
 
-  /**
-    * Flush Rewrite on CPT activation
-    * @return empty
-    */
-    public function rewrite_flush()
-    {
-        // Flush the rewrite rules only on theme activation
-        flush_rewrite_rules();
-    }
+	/**
+	 * Flush Rewrite on CPT activation
+	 * @return empty
+	 */
+	public function rewrite_flush() {
+		// Flush the rewrite rules only on theme activation
+		flush_rewrite_rules();
+	}
 }

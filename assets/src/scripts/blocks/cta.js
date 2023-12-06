@@ -1,4 +1,4 @@
-const { registerBlockType } = wp.blocks;
+const {registerBlockType} = wp.blocks;
 const {
 	PlainText,
 	RichText,
@@ -7,9 +7,9 @@ const {
 	InspectorControls,
 	ColorPalette,
 } = wp.editor;
-const { IconButton, RangeControl, PanelBody } = wp.components;
+const {IconButton, RangeControl, PanelBody} = wp.components;
 
-registerBlockType( 'gutenberg-awps/awps-cta', {
+registerBlockType('gutenberg-awps/awps-cta', {
 	title: 'Call to Action',
 	icon: 'format-image',
 	category: 'layout',
@@ -58,7 +58,7 @@ registerBlockType( 'gutenberg-awps/awps-cta', {
 		},
 	},
 
-	edit( { attributes, className, setAttributes } ) {
+	edit({attributes, className, setAttributes}) {
 		const {
 			title,
 			body,
@@ -71,166 +71,166 @@ registerBlockType( 'gutenberg-awps/awps-cta', {
 			buttonText,
 		} = attributes;
 
-		function onSelectImage( newImage ) {
-			setAttributes( { backgroundImage: newImage.sizes.full.url } );
+		function onSelectImage(newImage) {
+			setAttributes({backgroundImage: newImage.sizes.full.url});
 		}
 
-		function onChangeBody( newBody ) {
-			setAttributes( { body: newBody } );
+		function onChangeBody(newBody) {
+			setAttributes({body: newBody});
 		}
 
-		function onChangeTitle( newTitle ) {
-			setAttributes( { title: newTitle } );
+		function onChangeTitle(newTitle) {
+			setAttributes({title: newTitle});
 		}
 
-		function onTitleColorChange( newColor ) {
-			setAttributes( { titleColor: newColor } );
+		function onTitleColorChange(newColor) {
+			setAttributes({titleColor: newColor});
 		}
 
-		function onBodyColorChange( newColor ) {
-			setAttributes( { bodyColor: newColor } );
+		function onBodyColorChange(newColor) {
+			setAttributes({bodyColor: newColor});
 		}
 
-		function onOverlayColorChange( newColor ) {
-			setAttributes( { overlayColor: newColor } );
+		function onOverlayColorChange(newColor) {
+			setAttributes({overlayColor: newColor});
 		}
 
-		function onOverlayOpacityChange( newOpacity ) {
-			setAttributes( { overlayOpacity: newOpacity } );
+		function onOverlayOpacityChange(newOpacity) {
+			setAttributes({overlayOpacity: newOpacity});
 		}
 
-		function changeButtonText( newText ) {
-			setAttributes( { buttonText: newText } );
+		function changeButtonText(newText) {
+			setAttributes({buttonText: newText});
 		}
 
-		function onChangeUrl( newUrl ) {
-			setAttributes( { url: newUrl } );
+		function onChangeUrl(newUrl) {
+			setAttributes({url: newUrl});
 		}
 
 		return (
 			<div>
-				<InspectorControls style={ { marginBottom: '40px' } }>
-					<PanelBody title={ 'Font Color Settings' }>
-						<div style={ { marginTop: '20px' } }>
+				<InspectorControls style={{marginBottom: '40px'}}>
+					<PanelBody title={'Font Color Settings'}>
+						<div style={{marginTop: '20px'}}>
 							<p>
 								<strong>Select a Title color:</strong>
 							</p>
 							<ColorPalette
-								value={ titleColor }
-								onChange={ onTitleColorChange }
+								value={titleColor}
+								onChange={onTitleColorChange}
 							/>
 						</div>
 						<div
-							style={ {
+							style={{
 								marginTop: '20px',
 								marginBottom: '40px',
-							} }
+							}}
 						>
 							<p>
 								<strong>Select a Body color:</strong>
 							</p>
 							<ColorPalette
-								value={ bodyColor }
-								onChange={ onBodyColorChange }
+								value={bodyColor}
+								onChange={onBodyColorChange}
 							/>
 						</div>
 					</PanelBody>
-					<PanelBody title={ 'Background Image Settings' }>
+					<PanelBody title={'Background Image Settings'}>
 						<p>
 							<strong>Select a background image:</strong>
 						</p>
 						<MediaUpload
-							onSelect={ onSelectImage }
+							onSelect={onSelectImage}
 							type="image"
-							value={ backgroundImage }
-							render={ ( { open } ) => (
+							value={backgroundImage}
+							render={({open}) => (
 								<IconButton
 									className="editor-media-placeholder__button is-button is-default is-large"
 									icon="upload"
-									onClick={ open }
+									onClick={open}
 								>
 									Background Image
 								</IconButton>
-							) }
+							)}
 						/>
 						<div
-							style={ {
+							style={{
 								marginTop: '20px',
 								marginBottom: '40px',
-							} }
+							}}
 						>
 							<p>
 								<strong>Overlay Color:</strong>
 							</p>
 							<ColorPalette
-								value={ overlayColor }
-								onChange={ onOverlayColorChange }
+								value={overlayColor}
+								onChange={onOverlayColorChange}
 							/>
 						</div>
 						<RangeControl
-							label={ 'Overlay Opacity' }
-							value={ overlayOpacity }
-							onChange={ onOverlayOpacityChange }
-							min={ 0 }
-							max={ 1 }
-							step={ 0.05 }
+							label={'Overlay Opacity'}
+							value={overlayOpacity}
+							onChange={onOverlayOpacityChange}
+							min={0}
+							max={1}
+							step={0.05}
 						/>
 					</PanelBody>
 				</InspectorControls>
 				<div
 					className="cta-container"
-					style={ {
-						backgroundImage: `url(${ backgroundImage })`,
+					style={{
+						backgroundImage: `url(${backgroundImage})`,
 						backgroundSize: 'cover',
 						backgroundPosition: 'center',
 						backgroundRepeat: 'no-repeat',
-					} }
+					}}
 				>
 					<div
 						className="cta-overlay"
-						style={ {
+						style={{
 							background: overlayColor,
 							opacity: overlayOpacity,
-						} }
+						}}
 					></div>
 					<div className="cta-content">
 						<RichText
 							key="editable"
 							tagName="h3"
-							className={ className }
+							className={className}
 							placeholder="Your CTA title"
-							onChange={ onChangeTitle }
-							value={ title }
-							style={ { color: titleColor } }
+							onChange={onChangeTitle}
+							value={title}
+							style={{color: titleColor}}
 						/>
 						<BlockControls></BlockControls>
 						<RichText
 							key="editable"
 							tagName="p"
-							className={ className }
+							className={className}
 							placeholder="Your CTA Description"
-							onChange={ onChangeBody }
-							value={ body }
-							style={ { color: bodyColor } }
+							onChange={onChangeBody}
+							value={body}
+							style={{color: bodyColor}}
 						/>
 						<div className="cta-content-button">
 							<RichText
 								tagName="a"
-								onChange={ changeButtonText }
-								title={ buttonText }
-								value={ buttonText }
+								onChange={changeButtonText}
+								title={buttonText}
+								value={buttonText}
 								target="_blank"
 							/>
 						</div>
 						<PlainText
-							style={ {
+							style={{
 								color: '#333',
 								fontSize: '12px',
 								padding: '2px',
-							} }
-							value={ url }
-							onChange={ onChangeUrl }
-							placeholder={ 'http://' }
+							}}
+							value={url}
+							onChange={onChangeUrl}
+							placeholder={'http://'}
 						/>
 					</div>
 				</div>
@@ -238,7 +238,7 @@ registerBlockType( 'gutenberg-awps/awps-cta', {
 		);
 	},
 
-	save( { attributes } ) {
+	save({attributes}) {
 		const {
 			title,
 			body,
@@ -254,33 +254,33 @@ registerBlockType( 'gutenberg-awps/awps-cta', {
 		return (
 			<div
 				className="cta-container"
-				style={ {
-					backgroundImage: `url(${ backgroundImage })`,
+				style={{
+					backgroundImage: `url(${backgroundImage})`,
 					backgroundSize: 'cover',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
-				} }
+				}}
 			>
 				<div
 					className="cta-overlay"
-					style={ {
+					style={{
 						background: overlayColor,
 						opacity: overlayOpacity,
-					} }
+					}}
 				></div>
 				<div className="cta-content">
-					<h3 style={ { color: titleColor } }>{ title }</h3>
+					<h3 style={{color: titleColor}}>{title}</h3>
 					<RichText.Content
 						tagName="p"
-						value={ body }
-						style={ { color: bodyColor } }
+						value={body}
+						style={{color: bodyColor}}
 					/>
 					<div className="cta-content-button">
 						<RichText.Content
 							tagName="a"
-							href={ url }
-							title={ buttonText }
-							value={ buttonText }
+							href={url}
+							title={buttonText}
+							value={buttonText}
 							target="_blank"
 						/>
 					</div>
@@ -288,4 +288,4 @@ registerBlockType( 'gutenberg-awps/awps-cta', {
 			</div>
 		);
 	},
-} );
+});

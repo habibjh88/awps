@@ -17,13 +17,13 @@
 	<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
-		?>
+			?>
 
 			<p>
 				<?php
 				printf(
 					wp_kses(
-						/* translators: 1: link. */
+					/* translators: 1: link. */
 						__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'awps' ),
 						array(
 							'a' => array(
@@ -40,18 +40,18 @@
 
 			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'awps' ); ?></p>
 			<?php
-				get_search_form();
+			get_search_form();
 
-			else :
+		else :
 			?>
 
 			<p>
-			<?php
-			esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'awps' );
-			?>
+				<?php
+				esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'awps' );
+				?>
 			</p>
 			<?php
-				get_search_form();
+			get_search_form();
 
 		endif;
 		?>

@@ -1,7 +1,11 @@
 {
 	"name": "alecaddd/awps",
 	"description": "Alecaddd WordPress Starter Theme for savvy developers",
-	"keywords": ["WordPress", "Theme", "Starter"],
+	"keywords": [
+		"WordPress",
+		"Theme",
+		"Starter"
+	],
 	"homepage": "https://github.com/Alecaddd/awps",
 	"license": "GPL-3.0",
 	"version": "4.0.0",
@@ -14,8 +18,12 @@
 		}
 	],
 	"autoload": {
-		"psr-4": { "Awps\\": "./inc" },
-		"files": [ "./inc/Helpers.php" ]
+		"psr-4": {
+			"Awps\\": "./inc"
+		},
+		"files": [
+			"./inc/Helpers.php"
+		]
 	},
 	"config": {
 		"allow-plugins": {
